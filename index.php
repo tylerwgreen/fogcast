@@ -32,7 +32,7 @@ foreach($zonesCombined as $k => $v){
 							<span class="<?= $zone->hasSnow ? 'zone-has-snow' : ''; ?>">Snow</span>
 							<span class="<?= $zone->hasFog ? 'zone-has-fog' : ''; ?>">Fog</span>
 						</td>
-						<td><a href="https://www.google.com/maps/search/<?= $zone->geometryCoordinatesCentral->x; ?>,<?= $zone->geometryCoordinatesCentral->y; ?>" target="_blank"><?= $zone->feature->properties->id; ?></a></td>
+						<td><a href="https://www.google.com/maps/search/<?= $zone->geometryCoordinatesCentral->x; ?>,<?= $zone->geometryCoordinatesCentral->y; ?>,10z" target="_blank"><?= $zone->feature->properties->id; ?></a></td>
 						<td><?= $zone->feature->properties->name; ?></td>
 						<td class="updated"><?= date('y-m-d\<\b\r\/\>H:i:s', $forecast->updated); ?></td>
 						<?php foreach($forecast->periods as $period): ?>
