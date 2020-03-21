@@ -1,0 +1,50 @@
+html{
+	width:5000px;
+}
+table{
+	width:100%;
+	border-collapse: collapse;
+}
+table tbody tr.alt{
+	background-color:#eeeeee;
+}
+table tbody tr td{
+	padding:2px 5px;
+}
+table tbody tr td.updated{
+	white-space: nowrap;
+}
+table tbody tr td.forecast{
+}
+table tbody tr td.overview span{
+	padding:2px 5px;
+	display:block;
+}
+/* table tbody tr td.overview span.zone-has-rain{
+	background-color:#ffdfdf;
+}
+table tbody tr td.overview span.zone-has-thunder{
+	background-color:#ccaacc;
+}
+table tbody tr td.overview span.zone-has-snow{
+	background-color:#d0f7ff;
+}
+table tbody tr td.overview span.zone-has-fog{
+	background-color:#ccffcc;
+} */
+table tbody tr td.overview span.zone-has-rain,
+table tbody tr td.period-has-rain{
+	background-color:#ff8d8d;
+}
+table tbody tr td.overview span.zone-has-thunder,
+table tbody tr td.period-has-thunder{
+	background-color:#c385c3;
+}
+table tbody tr td.overview span.zone-has-snow,
+table tbody tr td.period-has-snow{
+	background-color:#85b9c3;
+}
+table tbody tr td.overview span.zone-has-fog,
+table tbody tr td.period-has-fog{
+	background-color:#63c363;
+}
