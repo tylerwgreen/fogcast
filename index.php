@@ -32,8 +32,14 @@ foreach($zonesCombined as $k => $v){
 							<span class="<?= $zone->hasSnow ? 'zone-has-snow' : ''; ?>">Snow</span>
 							<span class="<?= $zone->hasFog ? 'zone-has-fog' : ''; ?>">Fog</span>
 						</td>
-						<td><a href="https://www.google.com/maps/search/@<?= $zone->geometryCoordinatesCentral->x; ?>,<?= $zone->geometryCoordinatesCentral->y; ?>,12z" target="_blank"><?= $zone->feature->properties->id; ?></a></td>
-						<td><?= $zone->feature->properties->name; ?></td>
+						<td><a
+							href="https://forecast.weather.gov/MapClick.php?w0=t&w1=td&w2=wc&w3=sfcwind&w3u=1&w4=sky&w5=pop&w6=rh&w7=rain&w8=thunder&w9=snow&w10=fzg&w11=sleet&w12=fog&w13u=0&w16u=1&AheadHour=0&Submit=Submit&FcstType=graphical&textField1=<?= $zone->geometryCoordinatesCentral->x; ?>&textField2=<?= $zone->geometryCoordinatesCentral->y; ?>&site=all&unit=0&dd=&bw="
+							target="_blank"
+							><?= $zone->feature->properties->id; ?><br/>Hourly Forecast</a></td>
+						<td><a
+							href="https://www.google.com/maps/search/@<?= $zone->geometryCoordinatesCentral->x; ?>,<?= $zone->geometryCoordinatesCentral->y; ?>,12z"
+							target="_blank"
+							><?= $zone->feature->properties->name; ?><br/>Map</a></td>
 						<td class="updated"><?= date('y-m-d\<\b\r\/\>H:i:s', $forecast->updated); ?></td>
 						<?php foreach($forecast->periods as $period): ?>
 							<td class="forecast <?= $period->rain ? 'period-has-rain' : ''; ?> <?= $period->thunder ? 'period-has-thunder' : ''; ?> <?= $period->snow ? 'period-has-snow' : ''; ?> <?= $period->fog ? 'period-has-fog' : ''; ?>"><b><?= $period->name; ?>:</b> <?= $period->forecast; ?></td>
