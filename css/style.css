@@ -1,50 +1,716 @@
-html{
-	width:5000px;
+/* line 24, http://fogcast.local/less/imports/mixins.less */
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;behavior: url("/css/PIE.htc");
 }
-table{
-	width:100%;
-	border-collapse: collapse;
+/* line 41, http://fogcast.local/less/imports/helpers.less */
+legend,
+input[type="checkbox"],
+input[type="radio"],
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
 }
-table tbody tr.alt{
-	background-color:#eeeeee;
+/* line 67, http://fogcast.local/less/imports/helpers.less */
+body,
+figure,
+button,
+input,
+select,
+textarea {
+  margin: 0;
 }
-table tbody tr td{
-	padding:2px 5px;
+/* line 134, http://fogcast.local/less/imports/helpers.less */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
 }
-table tbody tr td.updated{
-	white-space: nowrap;
+/* line 138, http://fogcast.local/less/imports/helpers.less */
+audio,
+canvas,
+video {
+  display: -moz-inline-stack;display: inline-block;vertical-align: middle;*display: inline;/* IE7 inline-block hack */
+  *zoom: 1;
 }
-table tbody tr td.forecast{
+/* line 223, http://fogcast.local/less/imports/helpers.less */
+fieldset {
+  border: 1px solid #a6a6a6;
 }
-table tbody tr td.overview span{
-	padding:2px 5px;
-	display:block;
+/* line 243, http://fogcast.local/less/imports/helpers.less */
+legend,
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
 }
-/* table tbody tr td.overview span.zone-has-rain{
-	background-color:#ffdfdf;
+/* line 253, http://fogcast.local/less/imports/helpers.less */
+audio:not([controls]),
+[hidden] {
+  display: none;
 }
-table tbody tr td.overview span.zone-has-thunder{
-	background-color:#ccaacc;
+/* line 268, http://fogcast.local/less/imports/helpers.less */
+svg:not(:root) {
+  overflow: hidden;
 }
-table tbody tr td.overview span.zone-has-snow{
-	background-color:#d0f7ff;
+/* line 309, http://fogcast.local/less/imports/helpers.less */
+sub,
+sup {
+  position: relative;
 }
-table tbody tr td.overview span.zone-has-fog{
-	background-color:#ccffcc;
-} */
-table tbody tr td.overview span.zone-has-rain,
-table tbody tr td.period-has-rain{
-	background-color:#ff8d8d;
+/*------------------------------------------------------------------------------------------------------------------------
+	Author: Sean Goresht
+	www: http://seangoresht.com/
+	github: https://github.com/srsgores
+	twitter: http://twitter.com/S.Goresht
+	
+	Licensed under the GNU Public License
+	
+	=============================================================================
+	Filename:  reset.less
+	=============================================================================
+	
+--------------------------------------------------------------------------------------------------------------------- */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* line 19, http://fogcast.local/less/imports/reset.less */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
-table tbody tr td.overview span.zone-has-thunder,
-table tbody tr td.period-has-thunder{
-	background-color:#c385c3;
+/* HTML5 display-role reset for older browsers */
+/* line 40, http://fogcast.local/less/imports/reset.less */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
-table tbody tr td.overview span.zone-has-snow,
-table tbody tr td.period-has-snow{
-	background-color:#85b9c3;
+/* line 44, http://fogcast.local/less/imports/reset.less */
+body {
+  line-height: 1;
 }
-table tbody tr td.overview span.zone-has-fog,
-table tbody tr td.period-has-fog{
-	background-color:#63c363;
+/* line 47, http://fogcast.local/less/imports/reset.less */
+blockquote,
+q {
+  quotes: none;
+}
+/* line 50, http://fogcast.local/less/imports/reset.less */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+/* line 55, http://fogcast.local/less/imports/reset.less */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/*! normalize.css v2.0.1 | MIT License | git.io/normalize */
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined in IE 8/9.
+ */
+/**
+ * Correct `inline-block` display not defined in IE 8/9.
+ */
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+/* line 40, http://fogcast.local/less/imports/normalize.less */
+audio:not([controls]) {
+  height: 0;
+}
+/**
+ * Address styling not present in IE 8/9.
+ */
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+/* line 63, http://fogcast.local/less/imports/normalize.less */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+/**
+ * Remove default margin.
+ */
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+/* line 84, http://fogcast.local/less/imports/normalize.less */
+a:focus {
+  outline: thin dotted;
+}
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+/* line 92, http://fogcast.local/less/imports/normalize.less */
+a:active,
+a:hover {
+  outline: 0;
+}
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/**
+ * Address variable `h1` font size within `section` and `article` contexts in
+ * Firefox 4+, Safari 5, and Chrome.
+ */
+/* line 106, http://fogcast.local/less/imports/normalize.less */
+h1 {
+  font-size: 2em;
+}
+/**
+ * Address styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+/* line 114, http://fogcast.local/less/imports/normalize.less */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+/* line 122, http://fogcast.local/less/imports/normalize.less */
+b,
+strong {
+  font-weight: bold;
+}
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+/* line 131, http://fogcast.local/less/imports/normalize.less */
+dfn {
+  font-style: italic;
+}
+/**
+ * Address styling not present in IE 8/9.
+ */
+/* line 139, http://fogcast.local/less/imports/normalize.less */
+mark {
+  background: #ff0;
+  color: #000;
+}
+/**
+ * Correct font family set oddly in Safari 5 and Chrome.
+ */
+/* line 148, http://fogcast.local/less/imports/normalize.less */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+/* line 160, http://fogcast.local/less/imports/normalize.less */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+/**
+ * Set consistent quote types.
+ */
+/* line 170, http://fogcast.local/less/imports/normalize.less */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+/* line 178, http://fogcast.local/less/imports/normalize.less */
+small {
+  font-size: 80%;
+}
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+/* line 186, http://fogcast.local/less/imports/normalize.less */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+/* line 194, http://fogcast.local/less/imports/normalize.less */
+sup {
+  top: -0.5em;
+}
+/* line 198, http://fogcast.local/less/imports/normalize.less */
+sub {
+  bottom: -0.25em;
+}
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9.
+ */
+/* line 210, http://fogcast.local/less/imports/normalize.less */
+img {
+  border: 0;
+  max-width: 100%;
+}
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari 5.
+ */
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/**
+ * Define consistent border, margin, and padding.
+ */
+/* line 243, http://fogcast.local/less/imports/normalize.less */
+fieldset {
+  margin: 0 0.1em;
+  padding: 0.35em 0.625em 0.75em;
+}
+/**
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ */
+/* line 265, http://fogcast.local/less/imports/normalize.less */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 2 */
+}
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+/* line 279, http://fogcast.local/less/imports/normalize.less */
+button,
+input {
+  line-height: normal;
+}
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+/* line 292, http://fogcast.local/less/imports/normalize.less */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  cursor: pointer;
+  /* 3 */
+}
+/**
+ * Re-set default cursor for disabled elements.
+ */
+/* line 304, http://fogcast.local/less/imports/normalize.less */
+button[disabled],
+html input[disabled] {
+  cursor: not-allowed;
+}
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ */
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+/* line 326, http://fogcast.local/less/imports/normalize.less */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  behavior: url("/css/PIE.htc");
+}
+/* line 329, http://fogcast.local/less/imports/normalize.less */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+/* line 357, http://fogcast.local/less/imports/normalize.less */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+/* line 370, http://fogcast.local/less/imports/normalize.less */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* line 10, http://fogcast.local/less/style.less */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  behavior: url("/css/PIE.htc");
+}
+/* line 13, http://fogcast.local/less/style.less */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  behavior: url("/css/PIE.htc");
+}
+/*------------------------------------------------------------------------------------------------------------------------
+	Author: Sean Goresht
+	www: http://seangoresht.com/
+	github: https://github.com/srsgores
+
+	twitter: http://twitter.com/S.Goresht
+
+
+	Licensed under the GNU Public License
+
+	=============================================================================
+	Filename:  media-queries.less
+	=============================================================================
+	This file is responsible for all responsiveness in the template.
+ --------------------------------------------------------------------------------------------------------------------- */
+/* Mobile */
+@media handheld, only screen and (max-width: 105em) {
+  /* line 21, http://fogcast.local/less/imports/media-queries.less */
+  .row,
+  body {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* line 30, http://fogcast.local/less/imports/media-queries.less */
+  .container {
+    padding: 0 1em;
+  }
+  /* line 32, http://fogcast.local/less/imports/media-queries.less */
+  .container .form-actions,
+  .container .btn-group {
+    width: 100%;
+  }
+  /* line 34, http://fogcast.local/less/imports/media-queries.less */
+  .container .form-actions input,
+  .container .btn-group input,
+  .container .form-actions .btn,
+  .container .btn-group .btn,
+  .container .form-actions button,
+  .container .btn-group button {
+    display: block;
+    margin: -1px 0 0 0;
+    width: 100%;
+  }
+  /* line 40, http://fogcast.local/less/imports/media-queries.less */
+  .container button,
+  .container .btn,
+  .container input[type="submit"] {
+    margin: 1em 0;
+    white-space: normal;
+  }
+  /* line 46, http://fogcast.local/less/imports/media-queries.less */
+  input,
+  textarea,
+  keygen,
+  select,
+  button,
+  isindex {
+    width: 100%;
+  }
+  /* line 50, http://fogcast.local/less/imports/media-queries.less */
+  .col {
+    width: auto;
+    float: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  /* line 57, http://fogcast.local/less/imports/media-queries.less */
+  img {
+    width: 100%;
+  }
+  /* line 61, http://fogcast.local/less/imports/media-queries.less */
+  .box {
+    margin: 1em 0;
+  }
+}
+/* line 34, http://fogcast.local/less/style.less */
+body {
+  margin: 0 auto;
+}
+/* line 41, http://fogcast.local/less/style.less */
+table tbody tr.alt {
+  background-color: hsl(0, 0%, 90%);
+}
+/* line 44, http://fogcast.local/less/style.less */
+table tbody tr td {
+  vertical-align: top;
+  border-right: solid 1px #999;
+}
+/* line 47, http://fogcast.local/less/style.less */
+table tbody tr td.map-tile-cell {
+  padding: 0;
+  margin: 0;
+}
+/* line 50, http://fogcast.local/less/style.less */
+table tbody tr td.map-tile-cell .map-tile-wrap {
+  display: inline-block;
+  width: 350px;
+  height: 350px;
+}
+/* line 54, http://fogcast.local/less/style.less */
+table tbody tr td.map-tile-cell .map-tile-wrap img {
+  width: 100%;
+}
+/* line 59, http://fogcast.local/less/style.less */
+table tbody tr td.meta-cell {
+  width: 100px;
+  text-align: center;
+}
+/* line 62, http://fogcast.local/less/style.less */
+table tbody tr td.meta-cell .overview {
+  margin-bottom: 20px;
+}
+/* line 64, http://fogcast.local/less/style.less */
+table tbody tr td.meta-cell .overview span {
+  padding: 2px 5px;
+  display: block;
+}
+/* line 67, http://fogcast.local/less/style.less */
+table tbody tr td.meta-cell .overview span.zone-has-rain {
+  padding: 2px 5px;
+  background-color: #ff8d8d;
+}
+/* line 71, http://fogcast.local/less/style.less */
+table tbody tr td.meta-cell .overview span.zone-has-thunder {
+  padding: 2px 5px;
+  background-color: #c385c3;
+}
+/* line 75, http://fogcast.local/less/style.less */
+table tbody tr td.meta-cell .overview span.zone-has-snow {
+  background-color: #85b9c3;
+}
+/* line 78, http://fogcast.local/less/style.less */
+table tbody tr td.meta-cell .overview span.zone-has-fog {
+  padding: 2px 5px;
+  background-color: #63c363;
+}
+/* line 84, http://fogcast.local/less/style.less */
+table tbody tr td.meta-cell .hourly-forecast-link {
+  margin-bottom: 20px;
+}
+/* line 87, http://fogcast.local/less/style.less */
+table tbody tr td.meta-cell .map-link {
+  margin-bottom: 20px;
+}
+/* line 93, http://fogcast.local/less/style.less */
+table tbody tr td.forecast-cell {
+  padding: 0;
+}
+/* line 97, http://fogcast.local/less/style.less */
+table tbody tr td.forecast-cell .forecast-wrap .forecast-types span {
+  display: block;
+  float: left;
+  padding: 2px;
+  text-align: center;
+}
+/* line 102, http://fogcast.local/less/style.less */
+table tbody tr td.forecast-cell .forecast-wrap .forecast-types span.rain {
+  width: 45px;
+}
+/* line 105, http://fogcast.local/less/style.less */
+table tbody tr td.forecast-cell .forecast-wrap .forecast-types span.thunder {
+  width: 70px;
+}
+/* line 108, http://fogcast.local/less/style.less */
+table tbody tr td.forecast-cell .forecast-wrap .forecast-types span.snow {
+  width: 55px;
+}
+/* line 111, http://fogcast.local/less/style.less */
+table tbody tr td.forecast-cell .forecast-wrap .forecast-types span.fog {
+  width: 40px;
+}
+/* line 114, http://fogcast.local/less/style.less */
+table tbody tr td.forecast-cell .forecast-wrap .forecast-types span.period-has-rain {
+  background-color: #ff8d8d;
+}
+/* line 117, http://fogcast.local/less/style.less */
+table tbody tr td.forecast-cell .forecast-wrap .forecast-types span.period-has-thunder {
+  background-color: #c385c3;
+}
+/* line 120, http://fogcast.local/less/style.less */
+table tbody tr td.forecast-cell .forecast-wrap .forecast-types span.period-has-snow {
+  background-color: #85b9c3;
+}
+/* line 123, http://fogcast.local/less/style.less */
+table tbody tr td.forecast-cell .forecast-wrap .forecast-types span.period-has-fog {
+  background-color: #63c363;
+}
+/* line 128, http://fogcast.local/less/style.less */
+table tbody tr td.forecast-cell .forecast-wrap .forecast {
+  display: block;
+  clear: both;
+  width: 210px;
+  padding: 4px 5px;
 }
