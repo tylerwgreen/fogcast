@@ -207,7 +207,6 @@ var zones = {
 				rain: null,
 			},
 			init: function(){
-				console.log('ui.weatherSelector.init()');
 				this.weatherSelector = $('#weather-selector');
 				this.btns.fog = $('#weather-type-fog');
 				this.btns.thunder = $('#weather-type-thunder');
@@ -215,14 +214,28 @@ var zones = {
 				this.btns.rain = $('#weather-type-rain');
 				$.each(this.btns, function(k, btn){
 					btn.on('mouseover', zones.ui.weatherSelector.colorZones);
+					btn.on('touchstart', zones.ui.weatherSelector.colorZones);
+					btn.on('touchmove', zones.ui.weatherSelector.touchMove);
 					btn.on('mouseout', zones.ui.weatherSelector.resetZones);
+					btn.on('touchend', zones.ui.weatherSelector.resetZones);
 				});
 			},
+			touchMove: function(event){
+				console.log('touchMove');
+			},
 			colorZones: function(event){
-				var weatherType = $(this).data('weather-type');
+				event.preventDefault();
+				event.stopPropagation();
+				var btn = $(this);
+				btn.addClass('active');
+				var weatherType = btn.data('weather-type');
 				zones.ui.zones.colorByWeatherType(weatherType);
 			},
 			resetZones: function(event){
+				event.preventDefault();
+				event.stopPropagation();
+				var btn = $(this);
+				btn.removeClass('active');
 				zones.ui.zones.reset();
 			}
 		},
@@ -397,17 +410,23 @@ var zones = {
 					});
 					zones.ui.periodSelector.periodsList.append(element);
 					element.on('mouseover', zones.ui.periodSelector.period.mouseOver);
+					element.on('touchstart', zones.ui.periodSelector.period.mouseOver);
 					element.on('mouseout', zones.ui.periodSelector.period.mouseOut);
+					element.on('touchend', zones.ui.periodSelector.period.mouseOut);
 					zones.ui.periodSelector.periodDomElements.push(element);
 				});
 			},
 			period: {
 				mouseOver: function(event){
+					event.preventDefault();
+					event.stopPropagation();
 					var periodID = $(this).data('id');
 					zones.ui.zones.colorByPeriod(periodID);
 					zones.ui.periodData.update(zones.ui.periodSelector.periods[periodID]);
 				},
 				mouseOut: function(event){
+					event.preventDefault();
+					event.stopPropagation();
 					zones.ui.zones.reset();
 					zones.ui.periodData.reset();
 				}

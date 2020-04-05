@@ -1,9 +1,10 @@
 body#map{
+	@controls-z-index:10000;
 	width:100%;
 	height:100%;
 	#data-container{
 		@data-container-height:30px;
-		z-index:1000;
+		z-index:@controls-z-index;
 		#weather-selector{
 			height:@data-container-height;
 			line-height:@data-container-height;
@@ -11,6 +12,7 @@ body#map{
 			ul{
 				height:@data-container-height;
 				li{
+					@darken-amount: 20%;
 					height:@data-container-height;
 					display:block;
 					float:left;
@@ -22,25 +24,25 @@ body#map{
 						cursor:pointer;
 					}
 					&#weather-type-fog{
-						background-color:darken(@clr-fog, 10%);
+						background-color:darken(@clr-fog, @darken-amount);
 						&.active{
 							background-color:@clr-fog;
 						}
 					}
 					&#weather-type-thunder{
-						background-color:darken(@clr-thunder, 10%);
+						background-color:darken(@clr-thunder, @darken-amount);
 						&.active{
 							background-color:@clr-thunder;
 						}
 					}
 					&#weather-type-snow{
-						background-color:darken(@clr-snow, 10%);
+						background-color:darken(@clr-snow, @darken-amount);
 						&.active{
 							background-color:@clr-snow;
 						}
 					}
 					&#weather-type-rain{
-						background-color:darken(@clr-rain, 10%);
+						background-color:darken(@clr-rain, @darken-amount);
 						&.active{
 							background-color:@clr-rain;
 						}
@@ -136,7 +138,7 @@ body#map{
 	}
 	#period-selector{
 		@period-selector-height:30px;
-		z-index:1000;
+		z-index:@controls-z-index;
 		position:absolute;
 		bottom:0;
 		left:0;
@@ -173,7 +175,7 @@ body#map{
 		width:100%;
 		height:100%;
 		background-color:darken(@clr-white, 10%);
-		z-index:1001;
+		z-index:@controls-z-index + 1;
 		#forecast-modal-controls{
 			width:100%;
 			display:block;
@@ -198,7 +200,7 @@ body#map{
 		}
 		#forecast-data{
 			@height: 30px;
-			margin-top:@controls-height;
+			// margin-top:@controls-height;
 			clear:both;
 			width:100%;
 			display:block;
