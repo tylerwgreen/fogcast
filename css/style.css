@@ -757,7 +757,7 @@ body#map #data-container #zone-data #zone-overview li#zone-overview-rain {
 }
 /* line 103, http://fogcast.local/less/template/map.less */
 body#map #data-container #zone-data #zone-updated {
-  width: 170px;
+  width: 180px;
   text-align: center;
   border-right: solid 1px #999999;
 }
@@ -897,7 +897,7 @@ body#map #forecast-modal #forecast-data li#forecast-data-id-wrap {
 }
 /* line 232, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-data li#forecast-data-updated {
-  width: 170px;
+  width: 180px;
 }
 @media only screen and (min-width: 300px) and (max-width: 425px) {
   /* line 234, http://fogcast.local/less/template/map.less */
