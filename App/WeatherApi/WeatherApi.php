@@ -56,8 +56,9 @@ class Zones extends WeatherApi {
 			'include_geometry'	=> 'false',
 		]);
 		$zonesSimple = [];
-		foreach($zones->features as $feature)
+		foreach($zones->features as $feature){
 			$this->zones[$feature->properties->id] = new Zone($this->credentials, $feature);
+		}
 	}
 
 }
