@@ -11,9 +11,7 @@ try{
 		]
 	);
 	weatherDataCache($weatherData);
-	// var_dump($weatherData);
 }catch(Exception $e){
-	// var_dump($e);
 	$message = 'Error!';
 }
 require(TEMPLATE_HEADER);
