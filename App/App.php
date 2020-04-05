@@ -1,7 +1,8 @@
 <?php
+ini_set('memory_limit', '32M');
 // load dependencies
 define('DIR_BASE',	dirname(dirname(__FILE__)) . '/');
-define('DIR_APP',	DIR_BASE . 'app/');
+define('DIR_APP',	DIR_BASE . 'App/');
 require(DIR_APP . 'functions.php');
 require(DIR_APP . 'WeatherApi/WeatherApi.php');
 
