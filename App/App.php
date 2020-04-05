@@ -1,5 +1,5 @@
 <?php
-// ini_set('memory_limit', '32M');
+ini_set('memory_limit', '32M');
 // load dependencies
 define('DIR_BASE',	dirname(dirname(__FILE__)) . '/');
 define('DIR_APP',	DIR_BASE . 'App/');
