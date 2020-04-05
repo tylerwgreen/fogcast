@@ -5,11 +5,14 @@
 require(dirname(__FILE__) . '/App/App.php');
 $message = 'Success!';
 try{
-	$weatherData = weatherDataGet([
-		'OR',
-		'WA',
-		'ID',
-	]);
+	$weatherData = weatherDataGet(
+		$config->weatherAPI,
+		[
+			'OR',
+			// 'WA',
+			// 'ID',
+		]
+	);
 	weatherDataCache($weatherData);
 	// var_dump($weatherData);
 }catch(Exception $e){

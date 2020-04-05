@@ -3,8 +3,10 @@ class WeatherApi {
 	
 	private $baseUrl = 'https://api.weather.gov/';
 	
-	public function __construct(){
-		
+	private $credentials = null;
+	
+	public function __construct(object $credentials){
+		$this->credentials = $credentials;
 	}
 	
 	protected function request(string $path, array $params = []){
@@ -21,7 +23,7 @@ class WeatherApi {
 				'Accept: application/json',
 				'Content-Type: text/xml; charset=utf-8',
 				'Access-Control-Allow-*',
-				'User-Agent: (fogcast.freshgreenmedia.com, freshgreenmedia@gmail.com)',
+				'User-Agent: (' . $this->credentials->domain . ', ' . $this->credentials->email . ')',
 			],
 		];
 		curl_setopt_array($ch, $curlConfig);
@@ -36,10 +38,13 @@ class WeatherApi {
 
 class Zones extends WeatherApi {
 
+	private $credentials = null;
 	private $area = null;
 	public $zones = [];
 
-	public function __construct(string $area){
+	public function __construct(object $credentials, string $area){
+		parent::__construct($credentials);
+		$this->credentials = $credentials;
 		$this->area = $area;
 		$this->getZonesForArea();
 	}
@@ -52,13 +57,14 @@ class Zones extends WeatherApi {
 		]);
 		$zonesSimple = [];
 		foreach($zones->features as $feature)
-			$this->zones[$feature->properties->id] = new Zone($feature);
+			$this->zones[$feature->properties->id] = new Zone($this->credentials, $feature);
 	}
 
 }
 
 class Zone extends WeatherApi {
 
+	private $credentials = null;
 	public $geometryCoordinates = null;
 	public $geometryCoordinatesCentral = null;
 	public $geometryCoordinatesFirst = null;
@@ -69,7 +75,9 @@ class Zone extends WeatherApi {
 	public $feature = null;
 	private $forecast = null;
 
-	public function __construct(object $feature){
+	public function __construct(object $credentials, object $feature){
+		parent::__construct($credentials);
+		$this->credentials = $credentials;
 		$this->feature = $feature;
 		$this->setGeometryCoordinates();
 		$this->setGeometryCoordinatesCentral();

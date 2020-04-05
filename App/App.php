@@ -7,7 +7,7 @@ require(DIR_APP . 'functions.php');
 require(DIR_APP . 'WeatherApi/WeatherApi.php');
 
 // define app vars
-define('DIR_DATA',	DIR_BASE	. 'data/');
+define('DIR_DATA',		DIR_BASE	. 'data/');
 
 define('URL_BASE',	baseUrl());
 define('URL_IMG',	baseUrl()	. 'img/');
@@ -26,3 +26,6 @@ define('WEATHER_CACHE_FILE',	DIR_DATA . 'weather.json');
 define('WEATHER_CACHE',	true);
 // define('USE_LESS',		true);
 define('USE_LESS',		false);
+
+// load config
+$config = loadConfig();

@@ -1,7 +1,6 @@
 <?php
 require(dirname(__FILE__) . '/App/App.php');
 $weather = weatherDataGetCached();
-$mapsApiKey = 'AIzaSyAlLUqHhCgRGeQXqIu07k4Rl0DBy8z_4fQ';
 require(TEMPLATE_HEADER);
 ?>
 <body id="map">
@@ -42,6 +41,6 @@ require(TEMPLATE_HEADER);
 	</div>
 	<script>var zonesData = <?= json_encode($weather); ?>;</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?= $mapsApiKey; ?>&callback=initMap"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->google->mapsApiKey; ?>&callback=initMap"></script>
 	<script src="<?= URL_JS; ?>map.js"></script>
 <?php require(TEMPLATE_FOOTER); ?>
