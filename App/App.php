@@ -3,6 +3,8 @@
 //ini_set('display_startup_errors', 1);
 //error_reporting(E_ALL);
 ini_set('memory_limit', '32M');
+setlocale(LC_ALL, 'en-US');
+date_default_timezone_set('America/Los_Angeles');
 // load dependencies
 define('DIR_BASE',	dirname(dirname(__FILE__)) . '/');
 define('DIR_APP',	DIR_BASE . 'App/');
