@@ -24,8 +24,8 @@ define('TEMPLATE_FOOTER',	DIR_TEMPLATE	. 'footer.php');
 define('WEATHER_CACHE_FILE',	DIR_DATA . 'weather.json');
 
 define('WEATHER_CACHE',	true);
-// define('USE_LESS',		true);
-define('USE_LESS',		false);
+define('USE_LESS',		true);
+// define('USE_LESS',		false);
 
 // load config
 $config = loadConfig();

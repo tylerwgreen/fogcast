@@ -18,8 +18,8 @@ function initMap(){
 	);
 }
 var zones = {
-	// debug: true,
-	debug: false,
+	debug: true,
+	// debug: false,
 	zones: {},
 	map: null,
 	colors: {
@@ -85,7 +85,33 @@ var zones = {
 						return zones.colors.default;
 					}
 				}
-			}
+			},
+			getZoneColorByWeatherType: function(weatherType){
+				if(
+						weatherType === 'fog'
+					&&	self.forecast[weatherType]
+				){
+					return zones.colors.fog;
+				}else if(
+						weatherType === 'thunder'
+					&&	self.forecast[weatherType]
+				){
+					return zones.colors.thunder;
+				}else if(
+						weatherType === 'snow'
+					&&	self.forecast[weatherType]
+				){
+					return zones.colors.snow;
+				}else if(
+						weatherType === 'rain'
+					&&	self.forecast[weatherType]
+				){
+					return zones.colors.rain;
+				}else{
+					return zones.colors.default;
+				}
+			},
+			
 		}
 		// build polygon
 		this.polygon = new google.maps.Polygon({
@@ -96,6 +122,12 @@ var zones = {
 			fillColor: self.colors.getZoneColor(),
 			fillOpacity: 0.5
 		});
+		this.setColorByWeatherType = function(weatherType){
+			this.polygon.setOptions({
+				fillColor: self.colors.getZoneColorByWeatherType(weatherType),
+				strokeColor: self.colors.getZoneColorByWeatherType(weatherType)
+			});
+		}
 		this.setColorByZone = function(){
 			this.polygon.setOptions({
 				fillColor: self.colors.getZoneColor(),
@@ -157,6 +189,7 @@ var zones = {
 	},
 	ui: {
 		init: function(zonesData){
+			this.weatherSelector.init();
 			this.zoneData.init();
 			this.periodData.init();
 			this.periodSelector.init(zonesData);
@@ -164,6 +197,34 @@ var zones = {
 			this.map.init();
 			this.windowScreen.init();
 			this.forecastModal.init();
+		},
+		weatherSelector: {
+			weatherSelector: null,
+			btns: {
+				fog: null,
+				thunder: null,
+				snow: null,
+				rain: null,
+			},
+			init: function(){
+				console.log('ui.weatherSelector.init()');
+				this.weatherSelector = $('#weather-selector');
+				this.btns.fog = $('#weather-type-fog');
+				this.btns.thunder = $('#weather-type-thunder');
+				this.btns.snow = $('#weather-type-snow');
+				this.btns.rain = $('#weather-type-rain');
+				$.each(this.btns, function(k, btn){
+					btn.on('mouseover', zones.ui.weatherSelector.colorZones);
+					btn.on('mouseout', zones.ui.weatherSelector.resetZones);
+				});
+			},
+			colorZones: function(event){
+				var weatherType = $(this).data('weather-type');
+				zones.ui.zones.colorByWeatherType(weatherType);
+			},
+			resetZones: function(event){
+				zones.ui.zones.reset();
+			}
 		},
 		zoneData: {
 			zoneData: null,
@@ -218,10 +279,10 @@ var zones = {
 				snow: null,
 				init: function(){
 					this.zoneOverview = $('#zone-overview');
-					this.fog = this.zoneOverview.children('#fog');
-					this.thunder = this.zoneOverview.children('#thunder');
-					this.rain = this.zoneOverview.children('#rain');
-					this.snow = this.zoneOverview.children('#snow');
+					this.fog = this.zoneOverview.children('#zone-overview-fog');
+					this.thunder = this.zoneOverview.children('#zone-overview-thunder');
+					this.rain = this.zoneOverview.children('#zone-overview-rain');
+					this.snow = this.zoneOverview.children('#zone-overview-snow');
 				},
 				update: function(forecast){
 					if(forecast.fog){
@@ -354,6 +415,11 @@ var zones = {
 		},
 		zones: {
 			init: function(){},
+			colorByWeatherType: function(weatherType){
+				$.each(zones.zones, function(zoneID, zone){
+					zone.setColorByWeatherType(weatherType);
+				});
+			},
 			colorByPeriod: function(periodID){
 				$.each(zones.zones, function(zoneID, zone){
 					zone.setColorByPeriod(periodID);

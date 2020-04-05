@@ -4,6 +4,50 @@ body#map{
 	#data-container{
 		@data-container-height:30px;
 		z-index:1000;
+		#weather-selector{
+			height:@data-container-height;
+			line-height:@data-container-height;
+			overflow:hidden;
+			ul{
+				height:@data-container-height;
+				li{
+					height:@data-container-height;
+					display:block;
+					float:left;
+					text-align:center;
+					background-color:@clr-default;
+					padding:0 2.5%;
+					width:25%;
+					&:hover{
+						cursor:pointer;
+					}
+					&#weather-type-fog{
+						background-color:darken(@clr-fog, 10%);
+						&.active{
+							background-color:@clr-fog;
+						}
+					}
+					&#weather-type-thunder{
+						background-color:darken(@clr-thunder, 10%);
+						&.active{
+							background-color:@clr-thunder;
+						}
+					}
+					&#weather-type-snow{
+						background-color:darken(@clr-snow, 10%);
+						&.active{
+							background-color:@clr-snow;
+						}
+					}
+					&#weather-type-rain{
+						background-color:darken(@clr-rain, 10%);
+						&.active{
+							background-color:@clr-rain;
+						}
+					}
+				}
+			}
+		}
 		#zone-data{
 			position:absolute;
 			top:0;
@@ -40,16 +84,16 @@ body#map{
 					background-color:@clr-default;
 					padding:0 2.5%;
 					height:@data-container-height;
-					&#fog{
+					&#zone-overview-fog{
 						width:18%;
 					}
-					&#thunder{
+					&#zone-overview-thunder{
 						width:32%;
 					}
-					&#snow{
+					&#zone-overview-snow{
 						width:25%;
 					}
-					&#rain{
+					&#zone-overview-rain{
 						width:25%;
 					}
 				}
