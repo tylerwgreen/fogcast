@@ -4,7 +4,9 @@ function initMap(){
 		document.getElementById('map-container'),
 		{
 			zoom: 6,
-			center: homeLatLng
+			center: homeLatLng,
+			disableDefaultUI: true,
+			mapTypeId: 'satellite'
 		}
 	);
 	var home = new google.maps.Marker({
@@ -18,8 +20,7 @@ function initMap(){
 	);
 }
 var zones = {
-	debug: true,
-	// debug: false,
+	debug: false,
 	zones: {},
 	map: null,
 	colors: {
@@ -31,6 +32,10 @@ var zones = {
 	},
 	init: function(map, zonesData){
 		this.map = map;
+		if(window.debug){
+			this.debug = true;
+			console.log('DEBUG MODE ON');
+		}
 		if(this.debug){
 			// delay for less build
 			setTimeout(function(){
@@ -511,9 +516,7 @@ var zones = {
 			reset: function(){
 				zones.ui.forecastModal.hide();
 				zones.ui.forecastModal.forecastPeriods.empty();
-// zones.ui.zones.reset();
-zones.ui.zoneData.reset();
-// zones.ui.periodData.reset();
+				zones.ui.zoneData.reset();
 			},
 			populate: function(ID, properties, forecast, coordinatesCentral){
 				this.id.text(ID);

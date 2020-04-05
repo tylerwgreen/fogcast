@@ -225,12 +225,24 @@ body#map{
 				}
 				&#forecast-data-id-wrap{
 					width:70px;
+					@media @mobile{
+						width:50%;
+					}
 				}
 				&#forecast-data-updated{
 					width:170px;
+					@media @mobile{
+						width:50%;
+					}
 				}
 				&#forecast-data-name-wrap{
 					border-right:none;
+					@media @mobile{
+						clear:left;
+						background-color:@clr-white;
+						width:100%;
+						border-top:solid 1px @clr-gray;
+					}
 					a{
 						padding:0 5px;
 					}

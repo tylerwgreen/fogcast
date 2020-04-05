@@ -1,5 +1,5 @@
 <?php
-ini_set('memory_limit', '32M');
+// ini_set('memory_limit', '32M');
 // load dependencies
 define('DIR_BASE',	dirname(dirname(__FILE__)) . '/');
 define('DIR_APP',	DIR_BASE . 'App/');
@@ -24,6 +24,8 @@ define('TEMPLATE_FOOTER',	DIR_TEMPLATE	. 'footer.php');
 define('WEATHER_CACHE_FILE',	DIR_DATA . 'weather.json');
 
 define('WEATHER_CACHE',	true);
+// define('DEBUG',		true);
+define('DEBUG',		false);
 // define('USE_LESS',		true);
 define('USE_LESS',		false);
 

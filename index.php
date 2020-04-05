@@ -47,7 +47,10 @@ require(TEMPLATE_HEADER);
 		</ul>
 		<ul id="forecast-periods"></ul>
 	</div>
-	<script>var zonesData = <?= json_encode($weather); ?>;</script>
+	<script>
+		var debug = <?= DEBUG ? 'true' : 'false'; ?>;
+		var zonesData = <?= json_encode($weather); ?>;
+	</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->google->mapsApiKey; ?>&callback=initMap"></script>
 	<script src="<?= URL_JS; ?>map.js"></script>

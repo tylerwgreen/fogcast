@@ -9,8 +9,8 @@ try{
 		$config->weatherAPI,
 		[
 			'OR',
-			// 'WA',
-			// 'ID',
+			'WA',
+			'ID',
 		]
 	);
 	weatherDataCache($weatherData);
