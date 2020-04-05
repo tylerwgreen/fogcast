@@ -511,6 +511,9 @@ var zones = {
 			reset: function(){
 				zones.ui.forecastModal.hide();
 				zones.ui.forecastModal.forecastPeriods.empty();
+// zones.ui.zones.reset();
+zones.ui.zoneData.reset();
+// zones.ui.periodData.reset();
 			},
 			populate: function(ID, properties, forecast, coordinatesCentral){
 				this.id.text(ID);
