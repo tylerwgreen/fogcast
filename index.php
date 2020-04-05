@@ -55,6 +55,4 @@ require(TEMPLATE_HEADER);
 			<?php $alt = $alt ? false :true; endforeach; ?>
 		</tbody>
 	</table>
-</body>
-</html>
 <?php require(TEMPLATE_FOOTER); ?>
