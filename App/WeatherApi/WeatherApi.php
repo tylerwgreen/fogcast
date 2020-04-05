@@ -59,6 +59,7 @@ class Zones extends WeatherApi {
 
 class Zone extends WeatherApi {
 
+	public $geometryCoordinates = null;
 	public $geometryCoordinatesCentral = null;
 	public $geometryCoordinatesFirst = null;
 	public $hasFog = false;
@@ -70,11 +71,20 @@ class Zone extends WeatherApi {
 
 	public function __construct(object $feature){
 		$this->feature = $feature;
+		$this->setGeometryCoordinates();
 		$this->setGeometryCoordinatesCentral();
 		$this->setGeometryCoordinatesFirst();
 		$this->setForecast();
 	}
 
+	private function setGeometryCoordinates(){
+		$coordinates = array();
+		foreach($this->feature->geometry->coordinates as $a){
+			$coordinates[] = $a[0];
+		}
+		$this->geometryCoordinates = $coordinates;
+	}
+	
 	private function setGeometryCoordinatesCentral(){
 		foreach($this->feature->geometry->coordinates as $a){
 			foreach($a[0] as $b){
@@ -101,6 +111,7 @@ class Zone extends WeatherApi {
 	public function getForecast(){
 		$forecast = [
 			'updated' => strtotime($this->forecast->updated),
+			'updatedReadable' => date('D, M j \a\t g:i A', strtotime($this->forecast->updated)),
 			'periods' => [],
 		];
 		foreach($this->forecast->periods as $period){
@@ -113,7 +124,25 @@ class Zone extends WeatherApi {
 				'forecast'	=> $period->detailedForecast,
 			];
 		}
+		$forecast['fog']		= $this->hasFog;
+		$forecast['thunder']	= $this->hasThunder;
+		$forecast['snow']		= $this->hasSnow;
+		$forecast['rain']		= $this->hasRain;
 		return (object) $forecast;
+	}
+	
+	public function getProperties(){
+		$properties = $this->feature->properties;
+		unset($properties->{'@id'});
+		unset($properties->{'@type'});
+		unset($properties->id);
+		// unset($properties->name);
+		unset($properties->type);
+		// unset($properties->state);
+		unset($properties->cwa);
+		unset($properties->forecastOffices);
+		$properties->timeZone = $properties->timeZone[0];
+		return $properties;
 	}
 	
 	private function forecastHasFog(string $forecast){
