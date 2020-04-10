@@ -1,0 +1,13 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+	<meta charset="utf-8">
+	<title>Fogcast</title>
+	<meta name="description" content="Fogcast">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+			<link rel="stylesheet" href="http://fogcast.tylergreenphoto.com/css/style.css">
+	</head><body id="cron">
+	<p>Success!</p>
+		<script src="http://fogcast.tylergreenphoto.com/js/script.js"></script>
+</body>
+</html>
