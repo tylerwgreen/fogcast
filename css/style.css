@@ -513,121 +513,6 @@ body {
     background-color: #85b9c3;
   }
 }
-/* line 5, http://fogcast.local/less/template/home.less */
-body#home table tbody tr.alt {
-  background-color: hsl(0, 0%, 90%);
-}
-/* line 8, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td {
-  vertical-align: top;
-  border-right: solid 1px #999;
-}
-/* line 11, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.map-tile-cell {
-  padding: 0;
-  margin: 0;
-}
-/* line 14, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.map-tile-cell .map-tile-wrap {
-  display: inline-block;
-  width: 350px;
-  height: 350px;
-}
-/* line 18, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.map-tile-cell .map-tile-wrap img {
-  width: 100%;
-}
-/* line 23, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.meta-cell {
-  width: 100px;
-  text-align: center;
-}
-/* line 26, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.meta-cell .overview {
-  margin-bottom: 20px;
-}
-/* line 28, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.meta-cell .overview span {
-  padding: 2px 5px;
-  display: block;
-}
-/* line 31, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.meta-cell .overview span.zone-has-rain {
-  padding: 2px 5px;
-  background-color: #ff8d8d;
-}
-/* line 35, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.meta-cell .overview span.zone-has-thunder {
-  padding: 2px 5px;
-  background-color: #c385c3;
-}
-/* line 39, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.meta-cell .overview span.zone-has-snow {
-  background-color: #85b9c3;
-}
-/* line 42, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.meta-cell .overview span.zone-has-fog {
-  padding: 2px 5px;
-  background-color: #63c363;
-}
-/* line 48, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.meta-cell .hourly-forecast-link {
-  margin-bottom: 20px;
-}
-/* line 51, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.meta-cell .map-link {
-  margin-bottom: 20px;
-}
-/* line 57, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.forecast-cell {
-  padding: 0;
-}
-/* line 61, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.forecast-cell .forecast-wrap .forecast-types span {
-  display: block;
-  float: left;
-  padding: 2px;
-  text-align: center;
-}
-/* line 66, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.forecast-cell .forecast-wrap .forecast-types span.rain {
-  width: 45px;
-}
-/* line 69, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.forecast-cell .forecast-wrap .forecast-types span.thunder {
-  width: 70px;
-}
-/* line 72, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.forecast-cell .forecast-wrap .forecast-types span.snow {
-  width: 55px;
-}
-/* line 75, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.forecast-cell .forecast-wrap .forecast-types span.fog {
-  width: 40px;
-}
-/* line 78, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.forecast-cell .forecast-wrap .forecast-types span.period-has-rain {
-  background-color: #ff8d8d;
-}
-/* line 81, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.forecast-cell .forecast-wrap .forecast-types span.period-has-thunder {
-  background-color: #c385c3;
-}
-/* line 84, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.forecast-cell .forecast-wrap .forecast-types span.period-has-snow {
-  background-color: #85b9c3;
-}
-/* line 87, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.forecast-cell .forecast-wrap .forecast-types span.period-has-fog {
-  background-color: #63c363;
-}
-/* line 92, http://fogcast.local/less/template/home.less */
-body#home table tbody tr td.forecast-cell .forecast-wrap .forecast {
-  display: block;
-  clear: both;
-  width: 210px;
-  padding: 4px 5px;
-}
 /* line 1, http://fogcast.local/less/template/map.less */
 body#map {
   width: 100%;
@@ -797,32 +682,26 @@ body#map #period-selector {
   left: 0;
   display: block;
   width: 100%;
-}
-/* line 148, http://fogcast.local/less/template/map.less */
-body#map #period-selector #periods-list {
   height: 30px;
-  line-height: 30px;
-  width: 100%;
   background-color: #ffffff;
-  float: left;
-  display: block;
+  padding: 10px 30px;
 }
-/* line 155, http://fogcast.local/less/template/map.less */
-body#map #period-selector #periods-list li {
-  display: block;
-  float: left;
+/* line 151, http://fogcast.local/less/template/map.less */
+body#map #period-selector #period-selector-slider {
+  height: 10px;
+}
+/* line 153, http://fogcast.local/less/template/map.less */
+body#map #period-selector #period-selector-slider #period-selector-custom-handle {
+  width: 40px;
+  height: 20px;
+  top: 50%;
+  margin-top: -10px;
+  margin-left: -25px;
   text-align: center;
-  background-color: #e6e6e6;
-  height: 30px;
-  width: 1%;
-  border-right: solid 1px #999999;
-  cursor: pointer;
+  line-height: 18px;
+  font-size: 12px;
 }
 /* line 165, http://fogcast.local/less/template/map.less */
-body#map #period-selector #periods-list li:hover {
-  background-color: #ffffff;
-}
-/* line 171, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal {
   display: none;
   position: absolute;
@@ -831,7 +710,7 @@ body#map #forecast-modal {
   background-color: #e6e6e6;
   z-index: 10001;
 }
-/* line 179, http://fogcast.local/less/template/map.less */
+/* line 173, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-modal-controls {
   width: 100%;
   display: block;
@@ -842,7 +721,7 @@ body#map #forecast-modal #forecast-modal-controls {
   top: 0;
   left: 0;
 }
-/* line 188, http://fogcast.local/less/template/map.less */
+/* line 182, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-modal-controls a {
   height: 30px;
   display: block;
@@ -852,11 +731,11 @@ body#map #forecast-modal #forecast-modal-controls a {
   cursor: pointer;
   background-color: #e6e6e6;
 }
-/* line 196, http://fogcast.local/less/template/map.less */
+/* line 190, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-modal-controls a:hover {
   background-color: #ffffff;
 }
-/* line 201, http://fogcast.local/less/template/map.less */
+/* line 195, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-data {
   clear: both;
   width: 100%;
@@ -866,14 +745,14 @@ body#map #forecast-modal #forecast-data {
   line-height: 30px;
   background-color: #ffffff;
 }
-/* line 211, http://fogcast.local/less/template/map.less */
+/* line 205, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-data li {
   height: 30px;
   display: block;
   float: left;
   border-right: solid 1px #999999;
 }
-/* line 216, http://fogcast.local/less/template/map.less */
+/* line 210, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-data li a {
   display: block;
   text-decoration: none;
@@ -881,36 +760,36 @@ body#map #forecast-modal #forecast-data li a {
   height: 30px;
   line-height: 30px;
 }
-/* line 222, http://fogcast.local/less/template/map.less */
+/* line 216, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-data li a:hover {
   background-color: #e6e6e6;
 }
-/* line 226, http://fogcast.local/less/template/map.less */
+/* line 220, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-data li#forecast-data-id-wrap {
   width: 70px;
 }
 @media only screen and (min-width: 300px) and (max-width: 425px) {
-  /* line 228, http://fogcast.local/less/template/map.less */
+  /* line 222, http://fogcast.local/less/template/map.less */
   body#map #forecast-modal #forecast-data li#forecast-data-id-wrap {
     width: 50%;
   }
 }
-/* line 232, http://fogcast.local/less/template/map.less */
+/* line 226, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-data li#forecast-data-updated {
   width: 180px;
 }
 @media only screen and (min-width: 300px) and (max-width: 425px) {
-  /* line 234, http://fogcast.local/less/template/map.less */
+  /* line 228, http://fogcast.local/less/template/map.less */
   body#map #forecast-modal #forecast-data li#forecast-data-updated {
     width: 50%;
   }
 }
-/* line 238, http://fogcast.local/less/template/map.less */
+/* line 232, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-data li#forecast-data-name-wrap {
   border-right: none;
 }
 @media only screen and (min-width: 300px) and (max-width: 425px) {
-  /* line 240, http://fogcast.local/less/template/map.less */
+  /* line 234, http://fogcast.local/less/template/map.less */
   body#map #forecast-modal #forecast-data li#forecast-data-name-wrap {
     clear: left;
     background-color: #ffffff;
@@ -918,15 +797,15 @@ body#map #forecast-modal #forecast-data li#forecast-data-name-wrap {
     border-top: solid 1px #999999;
   }
 }
-/* line 246, http://fogcast.local/less/template/map.less */
+/* line 240, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-data li#forecast-data-name-wrap a {
   padding: 0 5px;
 }
-/* line 252, http://fogcast.local/less/template/map.less */
+/* line 246, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-periods {
   clear: both;
 }
-/* line 256, http://fogcast.local/less/template/map.less */
+/* line 250, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-periods li h3 {
   background-color: #000000;
   color: #ffffff;
@@ -935,14 +814,14 @@ body#map #forecast-modal #forecast-periods li h3 {
   padding: 0 5px;
   font-weight: bold;
 }
-/* line 265, http://fogcast.local/less/template/map.less */
+/* line 259, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-periods li ul#weather-types {
   line-height: 24px;
   height: 24px;
   width: 100%;
   text-align: center;
 }
-/* line 271, http://fogcast.local/less/template/map.less */
+/* line 265, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-periods li ul#weather-types li {
   height: 24px;
   display: block;
@@ -950,23 +829,23 @@ body#map #forecast-modal #forecast-periods li ul#weather-types li {
   float: left;
   background-color: #666666;
 }
-/* line 277, http://fogcast.local/less/template/map.less */
+/* line 271, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-periods li ul#weather-types li.has-fog {
   background-color: #63c363;
 }
-/* line 280, http://fogcast.local/less/template/map.less */
+/* line 274, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-periods li ul#weather-types li.has-thunder {
   background-color: #c385c3;
 }
-/* line 283, http://fogcast.local/less/template/map.less */
+/* line 277, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-periods li ul#weather-types li.has-snow {
   background-color: #85b9c3;
 }
-/* line 286, http://fogcast.local/less/template/map.less */
+/* line 280, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-periods li ul#weather-types li.has-rain {
   background-color: #ff8d8d;
 }
-/* line 291, http://fogcast.local/less/template/map.less */
+/* line 285, http://fogcast.local/less/template/map.less */
 body#map #forecast-modal #forecast-periods li p.forecast {
   padding: 8px 10px;
   background-color: #ffffff;

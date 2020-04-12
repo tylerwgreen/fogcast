@@ -197,7 +197,8 @@ var zones = {
 			this.weatherSelector.init();
 			this.zoneData.init();
 			this.periodData.init();
-			this.periodSelector.init(zonesData);
+this.periodSelector.init(zonesData);
+// this.slider.init(zonesData);
 			this.zones.init();
 			this.map.init();
 			this.windowScreen.init();
@@ -380,17 +381,18 @@ var zones = {
 		},
 		periodSelector: {
 			periodSelector: null,
-			periodsList: null,
+			slider: null,
+			handle: null,
 			periods: [],
-			periodDomElements: [],
 			init: function(zonesData){
 				this.periodSelector = $('#period-selector');
-				this.periodsList = $('#periods-list');
+				this.slider = $('#period-selector-slider');
+				this.handle = $('#period-selector-custom-handle');
 				this.parsePeriods(zonesData);
 				this.build();
 			},
 			getHeight: function(){
-				return this.periodSelector.height();
+				return this.slider.height();
 			},
 			parsePeriods: function(){
 				$.each(zonesData, function(zoneID, zone){
@@ -405,36 +407,32 @@ var zones = {
 				});
 			},
 			build: function(){
-				var periodWidth = 100 / this.periods.length;
-				$.each(this.periods, function(k, period){
-					var element = $('<li/>', {
-						id: 'period-' + k,
-						text: k,
-						width: periodWidth + '%',
-						'data-id': k
-					});
-					zones.ui.periodSelector.periodsList.append(element);
-					element.on('mouseover', zones.ui.periodSelector.period.mouseOver);
-					element.on('touchstart', zones.ui.periodSelector.period.mouseOver);
-					element.on('mouseout', zones.ui.periodSelector.period.mouseOut);
-					element.on('touchend', zones.ui.periodSelector.period.mouseOut);
-					zones.ui.periodSelector.periodDomElements.push(element);
+				this.slider.slider({
+					min: 1,
+					max: zones.ui.periodSelector.periods.length,
+					create: function(){
+						zones.ui.periodSelector.handle.text(0);
+					},
+					slide: function(event, ui){
+						zones.ui.periodSelector.update(ui.value, ui.value - 1);
+					},
+					start: function(event, ui){
+						zones.ui.periodSelector.update(ui.value, ui.value - 1);
+					},
+					stop: function(event, ui){
+						zones.ui.periodSelector.reset();
+					}
 				});
 			},
-			period: {
-				mouseOver: function(event){
-					event.preventDefault();
-					event.stopPropagation();
-					var periodID = $(this).data('id');
-					zones.ui.zones.colorByPeriod(periodID);
-					zones.ui.periodData.update(zones.ui.periodSelector.periods[periodID]);
-				},
-				mouseOut: function(event){
-					event.preventDefault();
-					event.stopPropagation();
-					zones.ui.zones.reset();
-					zones.ui.periodData.reset();
-				}
+			update: function(periodID, periodName){
+				zones.ui.periodSelector.reset();
+				zones.ui.periodSelector.handle.text(periodName);
+				zones.ui.zones.colorByPeriod(periodID);
+				zones.ui.periodData.update(zones.ui.periodSelector.periods[periodID]);
+			},
+			reset: function(){
+				zones.ui.zones.reset();
+				zones.ui.periodData.reset();
 			}
 		},
 		zones: {

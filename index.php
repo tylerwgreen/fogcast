@@ -34,7 +34,9 @@ require(TEMPLATE_HEADER);
 	</div>
 	<div id="map-container"></div>
 	<div id="period-selector">
-		<ul id="periods-list"></ul>
+		<div id="period-selector-slider">
+			<div id="period-selector-custom-handle" class="ui-slider-handle"></div>
+		</div>
 	</div>
 	<div id="forecast-modal">
 		<div id="forecast-modal-controls">
@@ -56,6 +58,8 @@ require(TEMPLATE_HEADER);
 		var zonesData = <?= json_encode($weather); ?>;
 	</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?= $config->google->mapsApiKey; ?>&callback=initMap"></script>
 	<script src="<?= URL_JS; ?>map.js"></script>
 <?php require(TEMPLATE_FOOTER); ?>

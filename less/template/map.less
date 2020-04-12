@@ -145,26 +145,20 @@ body#map{
 		width:100%;
 		display:block;
 		width:100%;
-		#periods-list{
-			height:@period-selector-height;
-			line-height:@period-selector-height;
-			width:100%;
-			background-color:@clr-white;
-			float:left;
-			display:block;
-			li{
-				display:block;
-				float:left;
-				text-align:center;
-				background-color:darken(@clr-white, 10%);
-				// padding:0 2.5%;
-				height:@period-selector-height;
-				width:1%;
-				border-right:solid 1px @clr-gray;
-				cursor:pointer;
-				&:hover{
-					background-color:@clr-white;
-				}
+		height:@period-selector-height;
+		background-color:@clr-white;
+		padding:10px 30px;
+		#period-selector-slider{
+			height:10px;
+			#period-selector-custom-handle{
+				width: 40px;
+				height: 20px;
+				top: 50%;
+				margin-top: -10px;
+				margin-left: -25px;
+				text-align: center;
+				line-height: 18px;
+				font-size:12px;
 			}
 		}
 	}

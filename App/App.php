@@ -30,10 +30,10 @@ define('TEMPLATE_FOOTER',	DIR_TEMPLATE	. 'footer.php');
 // files
 define('WEATHER_CACHE_FILE_BASE',	DIR_DATA . 'weather-');
 
-define('DEBUG',		true);
-// define('DEBUG',		false);
-define('USE_LESS',		true);
-// define('USE_LESS',		false);
+// define('DEBUG',		true);
+define('DEBUG',		false);
+// define('USE_LESS',		true);
+define('USE_LESS',		false);
 
 // load config
 $config = loadConfig();
