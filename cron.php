@@ -1,21 +1,15 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 require(dirname(__FILE__) . '/App/App.php');
 $message = 'Success!';
 try{
+	$stateZone = weatherDataGetStateZone();
 	$weatherData = weatherDataGet(
 		$config->weatherAPI,
-		[
-			'OR',
-			'WA',
-			'ID',
-		]
+		$stateZone
 	);
-	weatherDataCache($weatherData);
+	weatherDataCache($stateZone, $weatherData);
 }catch(Exception $e){
-	$message = 'Error!';
+	$message = $e->getMessage();
 }
 require(TEMPLATE_HEADER);
 ?>

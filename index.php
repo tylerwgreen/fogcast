@@ -1,6 +1,10 @@
 <?php
 require(dirname(__FILE__) . '/App/App.php');
-$weather = weatherDataGetCached();
+try{
+	$weather = weatherDataGetCached();
+}catch(Exception $e){
+	die($e->getMessage());
+}
 require(TEMPLATE_HEADER);
 ?>
 <body id="map">
