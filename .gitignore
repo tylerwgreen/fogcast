@@ -1,4 +1,4 @@
 *.config
-/data/weather.json
+/data/*.json
 .htaccess
 error.log
