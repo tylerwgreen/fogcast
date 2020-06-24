@@ -1,6 +1,8 @@
 <?php
 class WeatherApi {
 	
+	private $apiVersion = '1.1'; // the version defined in API results
+	
 	private $baseUrl = 'https://api.weather.gov/';
 	
 	private $credentials = null;
@@ -31,7 +33,11 @@ class WeatherApi {
 		if(curl_errno($ch))
 			throw new Exception(curl_error($ch));
 		curl_close($ch);
-		return json_decode($result);
+		$result = json_decode($result);
+		$apiVersion = $result->{'@context'}->{'@version'};
+		if($apiVersion !== $this->apiVersion)
+			throw new Exception('APP Version has changed from ' . $apiVersion . ' to ' . $this->apiVersion);
+		return $result;
 	}
 	
 }
@@ -55,6 +61,8 @@ class Zones extends WeatherApi {
 			'type'				=> 'forecast',
 			'include_geometry'	=> 'false',
 		]);
+		if(!isset($zones->features))
+			throw new Exception('Missing zones feature for area ' . $this->area);
 		$zonesSimple = [];
 		foreach($zones->features as $feature){
 			$this->zones[$feature->properties->id] = new Zone($this->credentials, $feature);
@@ -80,14 +88,19 @@ class Zone extends WeatherApi {
 		parent::__construct($credentials);
 		$this->credentials = $credentials;
 		$this->feature = $feature;
-		$this->setGeometryCoordinates();
-		$this->setGeometryCoordinatesCentral();
-		$this->setGeometryCoordinatesFirst();
+		// $this->setGeometryCoordinates();
+		// $this->setGeometryCoordinatesCentral();
+		// $this->setGeometryCoordinatesFirst();
 		$this->setForecast();
+		$this->setGeometryCoordinatesFromForecast();
+		$this->setGeometryCoordinatesCentralFromForecast();
+		$this->setGeometryCoordinatesFirstFromForecast();
 	}
 
-	private function setGeometryCoordinates(){
+	/* private function setGeometryCoordinates(){
 		$coordinates = array();
+		if(!isset($this->feature->geometry))
+			throw new Exception('Missing coordinates for feature ' . $this->feature->id);
 		foreach($this->feature->geometry->coordinates as $a){
 			$coordinates[] = $a[0];
 		}
@@ -111,19 +124,48 @@ class Zone extends WeatherApi {
 			'x' => $this->feature->geometry->coordinates[0][0][0][1],
 			'y' => $this->feature->geometry->coordinates[0][0][0][0],
 		];
+	} */
+	
+	private function setGeometryCoordinatesFromForecast(){
+		$coordinates = array();
+		if(!isset($this->forecast->geometry))
+			throw new Exception('Missing coordinates for forecast ' . $this->forecast->properties->zone);
+		foreach($this->forecast->geometry->coordinates as $a){
+			$coordinates[] = $a[0];
+		}
+		$this->geometryCoordinates = $coordinates;
+	}
+	
+	private function setGeometryCoordinatesCentralFromForecast(){
+		foreach($this->forecast->geometry->coordinates as $a){
+			foreach($a[0] as $b){
+				$centralCoordinates['x'][] = $b[1];
+				$centralCoordinates['y'][] = $b[0];
+			}
+		}
+		$centralCoordinates['x'] = array_sum($centralCoordinates['x']) / count($centralCoordinates['x']);
+		$centralCoordinates['y'] = array_sum($centralCoordinates['y']) / count($centralCoordinates['y']);
+		$this->geometryCoordinatesCentral = (object) $centralCoordinates;
+	}
+
+	private function setGeometryCoordinatesFirstFromForecast(){
+		$this->geometryCoordinatesFirst = (object) [
+			'x' => $this->forecast->geometry->coordinates[0][0][0][1],
+			'y' => $this->forecast->geometry->coordinates[0][0][0][0],
+		];
 	}
 	
 	private function setForecast(){
 		$this->forecast = $this->request('zones/forecast/' . $this->feature->properties->id . '/forecast');
 	}
-	
+
 	public function getForecast(){
 		$forecast = [
-			'updated' => strtotime($this->forecast->updated),
-			'updatedReadable' => date('D, M j \a\t g:i A', strtotime($this->forecast->updated)),
+			'updated' => strtotime($this->forecast->properties->updated),
+			'updatedReadable' => date('D, M j \a\t g:i A', strtotime($this->forecast->properties->updated)),
 			'periods' => [],
 		];
-		foreach($this->forecast->periods as $period){
+		foreach($this->forecast->properties->periods as $period){
 			$forecast['periods'][] = (object) [
 				'name'		=> $period->name,
 				'fog'		=> $this->forecastHasFog($period->detailedForecast),
