@@ -34,9 +34,11 @@ class WeatherApi {
 			throw new Exception(curl_error($ch));
 		curl_close($ch);
 		$result = json_decode($result);
-		$apiVersion = $result->{'@context'}->{'@version'};
-		if($apiVersion !== $this->apiVersion)
-			throw new Exception('APP Version has changed from ' . $apiVersion . ' to ' . $this->apiVersion);
+		if(isset($result->{'@context'}->{'@version'})){
+			$apiVersion = $result->{'@context'}->{'@version'};
+			if($apiVersion !== $this->apiVersion)
+				throw new Exception('APP Version has changed from ' . $apiVersion . ' to ' . $this->apiVersion);
+		}
 		return $result;
 	}
 	
