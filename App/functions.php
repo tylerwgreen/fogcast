@@ -45,8 +45,8 @@ function weatherDataGetStateZone(){
 function weatherDataGetStateZones(){
 	return [
 		'OR' => null,
-// 'WA' => null,
-// 'ID' => null,
+		'WA' => null,
+		'ID' => null,
 	];
 }
 
