@@ -14,7 +14,7 @@ require(DIR_APP . 'WeatherApi/WeatherApi.php');
 set_error_handler('errorAsExceptionHandler');
 
 // define app vars
-define('DIR_DATA',		DIR_BASE	. 'data/');
+define('DIR_DATA',		DIR_BASE	. 'web/data/');
 
 define('URL_BASE',	baseUrl());
 define('URL_IMG',	baseUrl()	. 'img/');
