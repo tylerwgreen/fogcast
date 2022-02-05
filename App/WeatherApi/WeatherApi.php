@@ -132,8 +132,14 @@ class Zone extends WeatherApi {
 		$coordinates = array();
 		if(!isset($this->forecast->geometry))
 			throw new Exception('Missing coordinates for forecast ' . $this->forecast->properties->zone);
-		foreach($this->forecast->geometry->coordinates as $a){
-			$coordinates[] = $a[0];
+		if($this->forecast->geometry->type == 'Polygon'){
+			$coordinates[] = $this->forecast->geometry->coordinates[0];
+		}elseif($this->forecast->geometry->type == 'MultiPolygon'){
+			foreach($this->forecast->geometry->coordinates as $a){
+				$coordinates[] = $a[0];
+			}
+		}else{
+			throw new Exception('Invalid geometry type for forecast ' . $this->forecast->properties->zone);
 		}
 		$this->geometryCoordinates = $coordinates;
 	}
